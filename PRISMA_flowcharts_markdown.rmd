@@ -32,7 +32,7 @@ dot <-
     excl_labels = c("Declined Consent", "Failed to Complete", "BMI 30"),
     percent_of_total = TRUE
     )
-DiagrammeR::grViz(dot)
+DiagrammeR::grViz(dot) 
 
 ```
 
