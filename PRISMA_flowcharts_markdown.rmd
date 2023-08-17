@@ -47,11 +47,11 @@ flow_exclusions(
 
 ```
 
-Next the flowchart for **GS1 and GS2 (HPV+ and HPV- signatures) and overall survival**. These use the same data. 
+Next the flowchart for **GS1, GS2 and GS3 and overall survival**. These use the same subset of data, but GS3 has different variable encoding. 
 
 ### STOPPED here
 
-```{r GS1 GS2 OS}
+```{r GS1 GS2 GS3 OS}
 flow_exclusions(
     incl_counts = c(1736, 1589, 1564, 1251),
     total_label = "Total Screened",
