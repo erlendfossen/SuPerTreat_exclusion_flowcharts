@@ -51,6 +51,7 @@ Next the flowchart for **GS1, GS2 and GS3 and overall survival**. These use the 
 
 ### STOPPED here
 
+
 ```{r GS1 GS2 GS3 OS}
 flow_exclusions(
     incl_counts = c(1736, 1589, 1564, 1251),
