@@ -31,7 +31,7 @@ outcome:
 flow_exclusions(incl_counts = c(1736, 1589, 1564, 1251), total_label = "Total Screened",
     incl_labels = c("Curative setting", "Early disease or locoregionally advanced disease",
         "Outcome available"), excl_labels = c("Recurrence/Metastatic setting", "Metastatic disease",
-        "Missing outcome"), percent_of_total = TRUE, labelloc = "t", label = "test")
+        "Missing outcome"), percent_of_total = TRUE)
 ```
 
 ![](Exclusion_flowcharts_markdown_files/figure-gfm/base%20clinical%20dfs-1.png)<!-- -->
@@ -39,13 +39,58 @@ flow_exclusions(incl_counts = c(1736, 1589, 1564, 1251), total_label = "Total Sc
 Next the flowchart for **GS1, GS2 and GS3 and overall survival**. These
 use the same subset of data, but GS3 has different variable encoding.
 
-### STOPPED here
-
 ``` r
-flow_exclusions(incl_counts = c(1736, 1589, 1564, 1251), total_label = "Total Screened",
-    incl_labels = c("Curative setting", "Early disease or locoregionally advanced disease",
-        "Outcome available"), excl_labels = c("Recurrence/Metastatic setting", "Metastatic disease",
-        "Missing outcome"), percent_of_total = TRUE, labelloc = "t", label = "test")
+flow_exclusions(incl_counts = c(1736, 1267, 1230, 1206, 1097), total_label = "Total Screened",
+    incl_labels = c("Gene expression available", "Curative setting", "Early disease or locoregionally advanced disease",
+        "Outcome available"), excl_labels = c("Missing gene expression", "Recurrence/Metastatic setting",
+        "Metastatic disease", "Missing outcome"), percent_of_total = TRUE)
 ```
 
 ![](Exclusion_flowcharts_markdown_files/figure-gfm/GS1%20GS2%20GS3%20OS-1.png)<!-- -->
+
+The flowchart for **GS1, GS2 and GS3 and disease-free survival** is very
+similar. Note that SCANDARE is also excluded at the outcome stage due to
+DFS information being very low quality (same for other flowcharts).
+These also use the same subset of data, but GS3 has different variable
+encoding.
+
+``` r
+flow_exclusions(incl_counts = c(1736, 1267, 1230, 1206, 907), total_label = "Total Screened",
+    incl_labels = c("Gene expression available", "Curative setting", "Early disease or locoregionally advanced disease",
+        "Outcome available"), excl_labels = c("Missing gene expression", "Recurrence/Metastatic setting",
+        "Metastatic disease", "Missing outcome"), percent_of_total = TRUE)
+```
+
+![](Exclusion_flowcharts_markdown_files/figure-gfm/GS1%20GS2%20GS3%20DFS-1.png)<!-- -->
+
+Next the flowchart for **GS4 & GS5 and overall survival**. These use the
+same subset of data, but have different variable encoding for chemo
+agents. These are also only for Locoregionally advanced disease and
+require information about treatment (specifically chemotherapy agents if
+they had chemotherapy).
+
+``` r
+flow_exclusions(incl_counts = c(1736, 1267, 1044, 1012, 802, 750), total_label = "Total Screened",
+    incl_labels = c("Gene expression available", "Locoregionally advanced disease",
+        "Curative setting", "Treatment information available", "Outcome available"),
+    excl_labels = c("Missing gene expression", "Early disease or metastatic disease",
+        "Recurrence/Metastatic setting", "Missing treatment information", "Missing outcome"),
+    percent_of_total = TRUE)
+```
+
+![](Exclusion_flowcharts_markdown_files/figure-gfm/GS4%20GS5%20OS-1.png)<!-- -->
+
+Lastly, the flowchart for **GS4 & GS5 and disease-free survival**. These
+use the same subset of data, but have different variable encoding for
+chemo agents. Very similar to OS above.
+
+``` r
+flow_exclusions(incl_counts = c(1736, 1267, 1044, 1012, 802, 700), total_label = "Total Screened",
+    incl_labels = c("Gene expression available", "Locoregionally advanced disease",
+        "Curative setting", "Treatment information available", "Outcome available"),
+    excl_labels = c("Missing gene expression", "Early disease or metastatic disease",
+        "Recurrence/Metastatic setting", "Missing treatment information", "Missing outcome"),
+    percent_of_total = TRUE)
+```
+
+![](Exclusion_flowcharts_markdown_files/figure-gfm/GS4%20GS5%20DFS-1.png)<!-- -->
