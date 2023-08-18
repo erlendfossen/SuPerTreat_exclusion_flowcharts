@@ -1,5 +1,5 @@
 ---
-title: "PRISMA flowcharts"
+title: "Exclusion flowcharts"
 output: github_document
 always_allow_html: true
 editor_options: 
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(tidy = T) # let r reformat your code to look tidy in the o
 knitr::opts_chunk$set(collapse = F) # should code and results be shown in the same chunk (=T) or be split in several chunks in the document (=F)
 ```
 
-The aim of this script is to make PRISMA flowcharts for different clinical scenarios and outcomes. The number of patients in each group is copied from a secure server for sensitive data (not available here). Start by loading the library.
+The aim of this script is to make exclusion flowcharts for different clinical scenarios and outcomes. The number of patients in each group is copied from a secure server for sensitive data (not available here). Start by loading the library.
 
 ```{r libraries}
 library(PRISMAstatement)
