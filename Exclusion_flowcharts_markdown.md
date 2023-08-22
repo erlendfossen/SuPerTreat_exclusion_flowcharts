@@ -18,7 +18,7 @@ overall survival** as outcome:
 ``` r
 flow_exclusions(incl_counts = c(1736, 1589, 1564, 1447), total_label = "Total Screened",
     incl_labels = c("Curative setting", "Early disease or locoregionally advanced disease",
-        "Outcome available"), excl_labels = c("Recurrence/Metastatic setting", "Metastatic disease",
+        "Outcome available"), excl_labels = c("Recurrence/Metastatic setting", "Metastatic disease / missing TNM stage",
         "Missing outcome"), percent_of_total = TRUE)
 ```
 
@@ -30,7 +30,7 @@ outcome:
 ``` r
 flow_exclusions(incl_counts = c(1736, 1589, 1564, 1251), total_label = "Total Screened",
     incl_labels = c("Curative setting", "Early disease or locoregionally advanced disease",
-        "Outcome available"), excl_labels = c("Recurrence/Metastatic setting", "Metastatic disease",
+        "Outcome available"), excl_labels = c("Recurrence/Metastatic setting", "Metastatic disease / missing TNM stage",
         "Missing outcome"), percent_of_total = TRUE)
 ```
 
@@ -43,7 +43,7 @@ use the same subset of data, but GS3 has different variable encoding.
 flow_exclusions(incl_counts = c(1736, 1267, 1230, 1206, 1097), total_label = "Total Screened",
     incl_labels = c("Gene expression available", "Curative setting", "Early disease or locoregionally advanced disease",
         "Outcome available"), excl_labels = c("Missing gene expression", "Recurrence/Metastatic setting",
-        "Metastatic disease", "Missing outcome"), percent_of_total = TRUE)
+        "Metastatic disease / missing TNM stage", "Missing outcome"), percent_of_total = TRUE)
 ```
 
 ![](Exclusion_flowcharts_markdown_files/figure-gfm/GS1%20GS2%20GS3%20OS-1.png)<!-- -->
@@ -58,7 +58,7 @@ encoding.
 flow_exclusions(incl_counts = c(1736, 1267, 1230, 1206, 907), total_label = "Total Screened",
     incl_labels = c("Gene expression available", "Curative setting", "Early disease or locoregionally advanced disease",
         "Outcome available"), excl_labels = c("Missing gene expression", "Recurrence/Metastatic setting",
-        "Metastatic disease", "Missing outcome"), percent_of_total = TRUE)
+        "Metastatic disease / missing TNM stage", "Missing outcome"), percent_of_total = TRUE)
 ```
 
 ![](Exclusion_flowcharts_markdown_files/figure-gfm/GS1%20GS2%20GS3%20DFS-1.png)<!-- -->
