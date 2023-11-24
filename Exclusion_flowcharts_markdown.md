@@ -3,8 +3,9 @@ Exclusion flowcharts
 
 The aim of this script is to make exclusion flowcharts for different
 clinical scenarios and outcomes. The number of patients in each group is
-copied from a secure server for sensitive data (not available here).
-Start by loading the library.
+copied from a secure server for sensitive data
+(“04_flowchart_eligibility.R”, not available here). Start by loading the
+library.
 
 ``` r
 library(PRISMAstatement)
@@ -16,10 +17,10 @@ Next, make an exclusion flowchart for the **base clinical model with
 overall survival** as outcome:
 
 ``` r
-flow_exclusions(incl_counts = c(1736, 1589, 1564, 1447), total_label = "Total Screened",
-    incl_labels = c("Curative setting", "Early disease or locoregionally advanced disease",
-        "Outcome available"), excl_labels = c("Recurrence/Metastatic setting", "Metastatic disease / missing TNM stage",
-        "Missing outcome"), percent_of_total = TRUE)
+flow_exclusions(incl_counts = c(1589, 1564, 1447), total_label = "Total Screened",
+    incl_labels = c("Early disease or locoregionally advanced disease", "Outcome available"),
+    excl_labels = c("Metastatic disease / missing TNM stage", "Missing outcome"),
+    percent_of_total = TRUE)
 ```
 
 ![](Exclusion_flowcharts_markdown_files/figure-gfm/base%20clinical%20OS-1.png)<!-- -->
@@ -28,10 +29,10 @@ Similarly for the **base clinical model with disease-free survival** as
 outcome:
 
 ``` r
-flow_exclusions(incl_counts = c(1736, 1589, 1564, 1251), total_label = "Total Screened",
-    incl_labels = c("Curative setting", "Early disease or locoregionally advanced disease",
-        "Outcome available"), excl_labels = c("Recurrence/Metastatic setting", "Metastatic disease / missing TNM stage",
-        "Missing outcome"), percent_of_total = TRUE)
+flow_exclusions(incl_counts = c(1589, 1564, 1251), total_label = "Total Screened",
+    incl_labels = c("Early disease or locoregionally advanced disease", "Outcome available"),
+    excl_labels = c("Metastatic disease / missing TNM stage", "Missing outcome"),
+    percent_of_total = TRUE)
 ```
 
 ![](Exclusion_flowcharts_markdown_files/figure-gfm/base%20clinical%20dfs-1.png)<!-- -->
@@ -40,10 +41,10 @@ Next the flowchart for **GS1, GS2 and GS3 and overall survival**. These
 use the same subset of data, but GS3 has different variable encoding.
 
 ``` r
-flow_exclusions(incl_counts = c(1736, 1267, 1230, 1206, 1097), total_label = "Total Screened",
-    incl_labels = c("Gene expression available", "Curative setting", "Early disease or locoregionally advanced disease",
-        "Outcome available"), excl_labels = c("Missing gene expression", "Recurrence/Metastatic setting",
-        "Metastatic disease / missing TNM stage", "Missing outcome"), percent_of_total = TRUE)
+flow_exclusions(incl_counts = c(1589, 1230, 1206, 1097), total_label = "Total Screened",
+    incl_labels = c("Gene expression available", "Early disease or locoregionally advanced disease",
+        "Outcome available"), excl_labels = c("Missing gene expression", "Metastatic disease / missing TNM stage",
+        "Missing outcome"), percent_of_total = TRUE)
 ```
 
 ![](Exclusion_flowcharts_markdown_files/figure-gfm/GS1%20GS2%20GS3%20OS-1.png)<!-- -->
@@ -55,10 +56,10 @@ These also use the same subset of data, but GS3 has different variable
 encoding.
 
 ``` r
-flow_exclusions(incl_counts = c(1736, 1267, 1230, 1206, 907), total_label = "Total Screened",
-    incl_labels = c("Gene expression available", "Curative setting", "Early disease or locoregionally advanced disease",
-        "Outcome available"), excl_labels = c("Missing gene expression", "Recurrence/Metastatic setting",
-        "Metastatic disease / missing TNM stage", "Missing outcome"), percent_of_total = TRUE)
+flow_exclusions(incl_counts = c(1589, 1230, 1206, 907), total_label = "Total Screened",
+    incl_labels = c("Gene expression available", "Early disease or locoregionally advanced disease",
+        "Outcome available"), excl_labels = c("Missing gene expression", "Metastatic disease / missing TNM stage",
+        "Missing outcome"), percent_of_total = TRUE)
 ```
 
 ![](Exclusion_flowcharts_markdown_files/figure-gfm/GS1%20GS2%20GS3%20DFS-1.png)<!-- -->
@@ -70,11 +71,10 @@ require information about treatment (specifically chemotherapy agents if
 they had chemotherapy).
 
 ``` r
-flow_exclusions(incl_counts = c(1736, 1267, 1044, 1012, 802, 750), total_label = "Total Screened",
+flow_exclusions(incl_counts = c(1589, 1230, 1012, 802, 750), total_label = "Total Screened",
     incl_labels = c("Gene expression available", "Locoregionally advanced disease",
-        "Curative setting", "Treatment information available", "Outcome available"),
-    excl_labels = c("Missing gene expression", "Early disease or metastatic disease",
-        "Recurrence/Metastatic setting", "Missing treatment information", "Missing outcome"),
+        "Treatment information available", "Outcome available"), excl_labels = c("Missing gene expression",
+        "Early disease or metastatic disease", "Missing treatment information", "Missing outcome"),
     percent_of_total = TRUE)
 ```
 
@@ -85,11 +85,10 @@ use the same subset of data, but have different variable encoding for
 chemo agents. Very similar to OS above.
 
 ``` r
-flow_exclusions(incl_counts = c(1736, 1267, 1044, 1012, 802, 700), total_label = "Total Screened",
+flow_exclusions(incl_counts = c(1589, 1230, 1012, 802, 700), total_label = "Total Screened",
     incl_labels = c("Gene expression available", "Locoregionally advanced disease",
-        "Curative setting", "Treatment information available", "Outcome available"),
-    excl_labels = c("Missing gene expression", "Early disease or metastatic disease",
-        "Recurrence/Metastatic setting", "Missing treatment information", "Missing outcome"),
+        "Treatment information available", "Outcome available"), excl_labels = c("Missing gene expression",
+        "Early disease or metastatic disease", "Missing treatment information", "Missing outcome"),
     percent_of_total = TRUE)
 ```
 
