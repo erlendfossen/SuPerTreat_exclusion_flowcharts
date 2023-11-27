@@ -13,6 +13,21 @@ library(PRISMAstatement)
 
     Warning: package 'PRISMAstatement' was built under R version 4.2.3
 
+``` r
+library(dplyr)
+```
+
+
+    Attaching package: 'dplyr'
+
+    The following objects are masked from 'package:stats':
+
+        filter, lag
+
+    The following objects are masked from 'package:base':
+
+        intersect, setdiff, setequal, union
+
 Next, make an exclusion flowchart for the **base clinical model with
 overall survival** as outcome:
 
@@ -93,3 +108,25 @@ flow_exclusions(incl_counts = c(1589, 1230, 1012, 802, 700), total_label = "Tota
 ```
 
 ![](Exclusion_flowcharts_markdown_files/figure-gfm/GS4%20GS5%20DFS-1.png)<!-- -->
+
+Finally, combine two flow charts into one figure: **clinical base model
+OS & GS4&GS5 OS data**.
+
+``` r
+# clinical base:
+clinical_flow <- flow_exclusions(incl_counts = c(1589, 1564, 1447), total_label = "Total Screened",
+    incl_labels = c("Early disease or locoregionally advanced disease", "Outcome available"),
+    excl_labels = c("Metastatic disease / missing TNM stage", "Missing outcome"),
+    percent_of_total = TRUE)
+
+# GS4&GS5 OS:
+GS4GS5_flow <- flow_exclusions(incl_counts = c(1589, 1230, 1012, 802, 750), total_label = "Total Screened",
+    incl_labels = c("Gene expression available", "Locoregionally advanced disease",
+        "Treatment information available", "Outcome available"), excl_labels = c("Missing gene expression",
+        "Early disease or metastatic disease", "Missing treatment information", "Missing outcome"),
+    percent_of_total = TRUE)
+
+manipulateWidget::combineWidgets(clinical_flow, GS4GS5_flow, ncol = 2, nrow = 1)
+```
+
+![](Exclusion_flowcharts_markdown_files/figure-gfm/clinical%20GS4%20GS5%20OS-1.png)<!-- -->
