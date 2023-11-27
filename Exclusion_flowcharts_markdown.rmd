@@ -18,7 +18,7 @@ knitr::opts_chunk$set(collapse = F) # should code and results be shown in the sa
 The aim of this script is to make exclusion flowcharts for different clinical scenarios and outcomes. The number of patients in each group is copied from a secure server for sensitive data ("04_flowchart_eligibility.R", not available here). Start by loading the library.
 
 ```{r libraries}
-library(PRISMAstatement)
+library(PRISMAstatement) 
 library(manipulateWidget)
 ```
 
