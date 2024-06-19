@@ -126,3 +126,30 @@ combineWidgets(clinical_flow, GS4GS5_flow, ncol = 2, nrow = 1)
 # OBS: this failed on RMarkdown, but works fine in R itself... Can export the
 # figure directly from R.
 ```
+
+## June2024
+
+Add two more flowcharts, starting from OS GS1. First **OS only RT**:
+
+``` r
+flow_exclusions(incl_counts = c(1589, 1230, 1206, 1097, 752), total_label = "Total Screened",
+    incl_labels = c("Gene expression available", "Early disease or locoregionally advanced disease",
+        "Outcome available", "Received radiotherapy"), excl_labels = c("Missing gene expression",
+        "Distant metastasis / missing TNM stage", "Missing outcome", "Did not recieve radiotherapy or \nmissing information about radiotherapy"),
+    percent_of_total = TRUE)
+```
+
+![](Exclusion_flowcharts_markdown_files/figure-gfm/OS%20only%20RT-1.png)<!-- -->
+
+Second **OS only CT**:
+
+``` r
+flow_exclusions(incl_counts = c(1589, 1230, 1206, 1097, 936, 445), total_label = "Total Screened",
+    incl_labels = c("Gene expression available", "Early disease or locoregionally advanced disease",
+        "Outcome available", "Locoregionally advanced disease", "Received systemic treatment"),
+    excl_labels = c("Missing gene expression", "Distant metastasis / missing TNM stage",
+        "Missing outcome", "Early disease", "Did not recieve systemic treatment or \nmissing information about systemic treatment"),
+    percent_of_total = TRUE)
+```
+
+![](Exclusion_flowcharts_markdown_files/figure-gfm/OS%20only%20CT-1.png)<!-- -->
