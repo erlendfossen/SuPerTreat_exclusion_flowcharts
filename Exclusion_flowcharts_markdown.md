@@ -153,3 +153,18 @@ flow_exclusions(incl_counts = c(1589, 1230, 1206, 1097, 936, 445), total_label =
 ```
 
 ![](Exclusion_flowcharts_markdown_files/figure-gfm/OS%20only%20CT-1.png)<!-- -->
+
+Lastly, save as jpeg file with 300 dpi resolution:
+
+``` r
+library(DiagrammeRsvg)
+library(rsvg)
+
+
+flow <- flow_exclusions(incl_counts = c(1589, 1230, 1206, 1097), total_label = "Total Screened",
+    incl_labels = c("Gene expression available", "Early disease or locoregionally advanced disease",
+        "Outcome available"), excl_labels = c("Missing gene expression", "Distant metastasis / missing TNM stage",
+        "Missing outcome"), percent_of_total = TRUE, width = 680, font_size = 8)
+
+PRISMAstatement:::prisma_pdf(flow, "test_pdf.pdf")
+```
